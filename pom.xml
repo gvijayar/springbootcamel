@@ -25,6 +25,7 @@
 		<title>Spring Boot REST JPA</title>
 
 		<spring.boot-version>1.5.1.RELEASE</spring.boot-version>
+		<jboss.fuse.version>2.18.0</jboss.fuse.version>
 		<!-- Spring Boot default profile in order to use an embedded database -->
 		<run.profiles>dev</run.profiles>
 		
@@ -62,29 +63,29 @@
 		<dependency>
 			<groupId>org.apache.camel</groupId>
 			<artifactId>camel-spring-boot-starter</artifactId>
-			<version>${project.version}</version>
+			<version>${jboss.fuse.version}</version>
 		</dependency>
 
 		<!-- Camel -->
 		<dependency>
 			<groupId>org.apache.camel</groupId>
 			<artifactId>camel-servlet</artifactId>
-			<version>${project.version}</version>
+			<version>${jboss.fuse.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.apache.camel</groupId>
 			<artifactId>camel-jackson</artifactId>
-			<version>${project.version}</version>
+			<version>${jboss.fuse.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.apache.camel</groupId>
 			<artifactId>camel-swagger-java</artifactId>
-			<version>${project.version}</version>
+			<version>${jboss.fuse.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.apache.camel</groupId>
 			<artifactId>camel-jpa</artifactId>
-			<version>${project.version}</version>
+			<version>${jboss.fuse.version}</version>
 		</dependency>
 
 		<!-- JDBC -->
