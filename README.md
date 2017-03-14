@@ -68,6 +68,18 @@ The example provides API documentation of the service using Swagger using
 the _context-path_ `camel-rest-jpa/api-doc`. You can access the API documentation
 from your Web browser at <http://localhost:8080/camel-rest-jpa/api-doc>.
 
+### Installing on Openshift Container Platform
+
+1. Create New Projecy in OCP.
+2. Import YAML Tab. Copy and Paste contents from CIBuildConfig.yml
+3. Click Add to Project.
+4. Select MySQL Database (Ephemeral or Persistent Storage) with user/pswd and database name. For example user/user & sampledb (testing purposes).
+5. Click Add to Project.
+6. Select SpringBootLatest template. Name = camelspringboot, Git URL = https://github.com/gvijayar/springbootcamel.git
+7. Select Advanced. Here enter the credentials to connect with the MySQL DB created in Step #4.
+
+
+
 ### Forum, Help, etc
 
 If you hit an problems please let us know on the Camel Forums
