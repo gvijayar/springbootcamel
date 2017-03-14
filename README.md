@@ -85,7 +85,7 @@ from your Web browser at <http://localhost:8080/camel-rest-jpa/api-doc>.
   - MYSQL_SERVICE_DATABASE = sampledb
   - MYSQL_SERVICE_USERNAME = user
   - MYSQL_SERVICE_PASSWORD = user
- 11. Click Create
+ 11. Click Create. Once the application gets created, go to the Builds section and kick off a manual build.
 
 ### Forum, Help, etc
 
