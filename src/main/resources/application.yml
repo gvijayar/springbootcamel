@@ -44,7 +44,7 @@ spring:
     hibernate:
       # To be updated in real production usage!
       ddl-auto: create-drop
-    show-sql: false
+    show-sql: true
 
 # The application configuration properties
 example:
