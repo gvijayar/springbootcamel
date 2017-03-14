@@ -68,9 +68,9 @@ The example provides API documentation of the service using Swagger using
 the _context-path_ `camel-rest-jpa/api-doc`. You can access the API documentation
 from your Web browser at <http://localhost:8080/camel-rest-jpa/api-doc>.
 
-### Installing on Openshift Container Platform
+### Steps for installing on the Openshift Container Platform
 
-1. Create New Projecy in OCP.
+1. Create New Project in OCP.
 2. Import YAML Tab. Copy and Paste contents from CIBuildConfig.yml
 3. Click Add to Project.
 4. Select MySQL Database (Ephemeral or Persistent Storage) with user/pswd and database name. For example user/user & sampledb (testing purposes).
