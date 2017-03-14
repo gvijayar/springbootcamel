@@ -71,7 +71,7 @@ from your Web browser at <http://localhost:8080/camel-rest-jpa/api-doc>.
 ### Steps for installing on the Openshift Container Platform
 
 1. Create New Project in OCP.
-2. Import YAML Tab. Copy and Paste contents from CIBuildConfig.yml
+2. Import YAML Tab. Copy and Paste contents from https://raw.githubusercontent.com/gvijayar/springbootcamel/master/CIBuildConfig.yml
 3. Click Add to Project.
 4. Select MySQL Database (Ephemeral or Persistent Storage) with user/pswd and database name. For example user/user & sampledb (testing purposes).
 5. Click Add to Project.
