@@ -78,14 +78,13 @@ from your Web browser at <http://localhost:8080/camel-rest-jpa/api-doc>.
 6. Select SpringBootLatest template. Name = camelspringboot, Git URL = https://github.com/gvijayar/springbootcamel.git
 7. Select Advanced.
 8. Uncheck all the boxes under the Build Configuration section.
-9. Uncheck all the boxes under the Deployment Configuration/AutoDeploy when section.
-10. Add the following under "Environment Variables (Runtime only)"
+9. Add the following under "Environment Variables (Runtime only)"
   - MYSQL_SERVICE_HOST = 172.30.225.223 (MySQL Service -> IP attribute).
   - MYSQL_SERVICE_PORT = 3306
   - MYSQL_SERVICE_DATABASE = sampledb
   - MYSQL_SERVICE_USERNAME = user
   - MYSQL_SERVICE_PASSWORD = user
- 11. Click Create. Once the application gets created, go to the Builds section and kick off a manual build.
+ 10. Click Create. Once the application gets created, go to the Builds section and kick off a manual build.
 
 ### Forum, Help, etc
 
