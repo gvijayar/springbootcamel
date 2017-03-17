@@ -94,7 +94,7 @@ from your Web browser at <http://localhost:8080/camel-rest-jpa/api-doc>.
         kind: ImageStreamTag
         namespace: openshift
         name: 'springboot:latest'
-      forcePull: true   
+      incremental: true   
  ```
 
 ### Forum, Help, etc
