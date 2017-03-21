@@ -24,23 +24,25 @@ spec:
     jenkinsPipelineStrategy:
     jenkinsfile: |-    
           def appName="${NAME}"
-          node {          
+          def project=""
+          def tag = "latest"
+          def verbose="${VERBOSE}"
+
+          node {
+            project = env.PROJECT_NAME
+
             stage("Build") {
-              openshiftBuild buildConfig: appName, showBuildLogs: 'true'
+              echo "building tag ${tag}"
+              openshiftBuild buildConfig: appName, showBuildLogs: "true", verbose: verbose
             }
 
-            stage("Deploy") {
-              openshiftDeploy deploymentConfig: appName
-              openshiftVerifyDeployment deploymentConfig: appName
-            }
-
-            stage("Validate") {
-              input message: "Test deployment. Approve?", id: "approval"
-            }
-
-            stage("Prepare Release") {
+            stage("Deploy Test") {
               openshiftTag srcStream: appName, srcTag: 'latest', destinationStream: appName, destinationTag: 'release', verbose: verbose
-              
+              openshiftVerifyDeployment deploymentConfig: "${appName}-${tag}", verbose: verbose
+            }
+
+            stage("Test") {
+              input message: "Test deployment. Approve?", id: "approval"
             }
           }
   output:
