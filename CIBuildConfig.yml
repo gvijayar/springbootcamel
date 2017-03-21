@@ -22,7 +22,26 @@ spec:
   strategy:
     type: JenkinsPipeline
     jenkinsPipelineStrategy:
-      jenkinsfile: "node('maven') {\nstage 'build'\nopenshiftBuild(buildConfig: 'camelspringboot', showBuildLogs: 'true')\nstage 'deploy'\nopenshiftDeploy(deploymentConfig: 'camelspringboot')\nopenshiftScale(deploymentConfig: 'camelspringboot',replicaCount: '2')\n}"
+    jenkinsfile: |-
+          node {          
+            stage("Build") {
+              openshiftBuild buildConfig: 'camelspringboot', showBuildLogs: 'true'
+            }
+
+            stage("Deploy") {
+              openshiftDeploy deploymentConfig: 'camelspringboot'
+              openshiftVerifyDeployment deploymentConfig: 'camelspringboot', verbose: verbose
+            }
+
+            stage("Validate") {
+              input message: "Test deployment. Approve?", id: "approval"
+            }
+
+            stage("Prepare Release") {
+              openshiftTag srcStream: 'camelspringboot', srcTag: 'latest', destinationStream: 'camelspringboot', destinationTag: 'release', verbose: verbose
+              
+            }
+          }
   output:
   resources:
   postCommit:
