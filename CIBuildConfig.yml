@@ -22,29 +22,7 @@ spec:
   strategy:
     type: JenkinsPipeline
     jenkinsPipelineStrategy:
-    jenkinsfile: |-    
-          def appName="${NAME}"
-          def project=""
-          def tag = "latest"
-          def verbose="${VERBOSE}"
-
-          node {
-            project = env.PROJECT_NAME
-
-            stage("Build") {
-              echo "building tag ${tag}"
-              openshiftBuild buildConfig: appName, showBuildLogs: "true", verbose: verbose
-            }
-
-            stage("Deploy Test") {
-              openshiftTag srcStream: appName, srcTag: 'latest', destinationStream: appName, destinationTag: 'release', verbose: verbose
-              openshiftVerifyDeployment deploymentConfig: "${appName}-${tag}", verbose: verbose
-            }
-
-            stage("Test") {
-              input message: "Test deployment. Approve?", id: "approval"
-            }
-          }
+      jenkinsfile: "node('maven') {stage 'build'\nopenshiftBuild(buildConfig: 'camelspringboot', showBuildLogs: 'true')\nstage 'deploy'\nopenshiftDeploy(deploymentConfig: 'camelspringboot')\nstage 'test'\ninput message: 'Test deployment. Approve?', id: 'approval'\nstage 'prepare'\nopenshiftTag(srcStream: 'camelspringboot', srcTag: 'latest', destinationStream: 'camelspringboot', destinationTag: 'release'\n}"
   output:
   resources:
   postCommit:
